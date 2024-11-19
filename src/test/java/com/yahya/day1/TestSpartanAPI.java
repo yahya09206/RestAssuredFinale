@@ -15,8 +15,7 @@ public class TestSpartanAPI {
         // get method is coming from RestAssured class to send get request to the url defined
         // store request in response object
         Response response = get("http://44.211.192.252:8000/api/hello");
-
-
+        System.out.println("response.statusCode() = " + response.statusCode());
 
 
     }
