@@ -15,5 +15,11 @@ public class TestOneSpartan {
 
         response.prettyPrint();
 
+        System.out.println("response.asString() = " + response.asString());
+
+        System.out.println("response.header(\"Content-Type\") = " + response.header("Content-Type"));
+
+        System.out.println("response.getHeader(\"Content-Type\") = " + response.getHeader("Content-Type"));
+
     }
 }
