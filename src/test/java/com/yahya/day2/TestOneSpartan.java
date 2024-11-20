@@ -43,7 +43,9 @@ public class TestOneSpartan {
         System.out.println("ContentType.JSON = " + ContentType.JSON);
         System.out.println("ContentType.XML = " + ContentType.XML);
         System.out.println("ContentType.URLENC = " + ContentType.URLENC);
+        System.out.println("ContentType.TEXT = " + ContentType.TEXT);
 
+        Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
 
     }
 }
