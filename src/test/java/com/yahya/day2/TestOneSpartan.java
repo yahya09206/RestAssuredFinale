@@ -1,6 +1,7 @@
 package com.yahya.day2;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -39,6 +40,10 @@ public class TestOneSpartan {
         Assertions.assertEquals("application/json", response.contentType());
 
         // Different type of content type is represented in Enum
+        System.out.println("ContentType.JSON = " + ContentType.JSON);
+        System.out.println("ContentType.XML = " + ContentType.XML);
+        System.out.println("ContentType.URLENC = " + ContentType.URLENC);
+
 
     }
 }
