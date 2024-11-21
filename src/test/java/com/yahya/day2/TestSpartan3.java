@@ -71,5 +71,19 @@ public class TestSpartan3 {
                             when().get("/spartans");
 
         response.prettyPrint();
+
+        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(ContentType.XML.toString(), response.contentType());
+    }
+
+    @Test
+    public void testSearch(){
+
+        Response response = given()
+                .queryParam("nameContains", "Ea")
+                .queryParam("gender", "Male")
+                .when().get("/spartans/search");
+
+
     }
 }
