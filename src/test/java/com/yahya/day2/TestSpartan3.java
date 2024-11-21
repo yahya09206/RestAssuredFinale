@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class TestSpartan3 {
@@ -41,7 +43,14 @@ public class TestSpartan3 {
 
         // get to body --> id or name or gender or phone
         System.out.println("response.path(\"[0].gender\") = " + response.path("[0].gender"));
-
         System.out.println("response.path(\"gender[0]\") = " + response.path("gender[0]"));
+
+        /**
+         * Get all the ids and store them into a List<Integer></Integer>
+         */
+        List<Integer> idList = response.path("id");
+        System.out.println("idList = " + idList);
+
+
     }
 }
