@@ -1,5 +1,6 @@
 package com.yahya.day2;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -33,8 +34,14 @@ public class TestSpartan3 {
     public void testAllSpartans(){
 
         Response response = get("/spartans");
-        response.prettyPrint();
+        // response.prettyPrint();
 
         Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
+
+        // get to body --> id or name or gender or phone
+        System.out.println("response.path(\"[0].gender\") = " + response.path("[0].gender"));
+
+        System.out.println("response.path(\"gender[0]\") = " + response.path("gender[0]"));
     }
 }
