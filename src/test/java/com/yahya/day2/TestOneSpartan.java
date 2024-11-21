@@ -74,7 +74,12 @@ public class TestOneSpartan {
         int myId = response.path("id");
         String myName = response.path("name");
         String myGender = response.path("gender");
-        long myPhone = response.path("phone");
+        int myPhone = response.path("phone");
+
+        System.out.println("myId = " + myId);
+        System.out.println("myName = " + myName);
+        System.out.println("myGender = " + myGender);
+        System.out.println("myPhone = " + myPhone);
 
 
     }
