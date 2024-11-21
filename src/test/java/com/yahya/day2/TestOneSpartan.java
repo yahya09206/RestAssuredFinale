@@ -58,6 +58,7 @@ public class TestOneSpartan {
         // can navigate thru json to get certain element
         // the easiest way is to get value using jsonpath is using path method from response object
         System.out.println("response.path(\"id\") = " + response.path("id"));
+        System.out.println("response.path(\"name\") = " + response.path("name"));
 
     }
 }
