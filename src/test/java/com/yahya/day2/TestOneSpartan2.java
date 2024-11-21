@@ -47,7 +47,7 @@ public class TestOneSpartan2 {
     @Test
     public void testContentTypeHeader(){
 
-        Response response = get("http://44.211.192.252:8000/api/spartans/21");
+        Response response = get("/spartans/21");
         System.out.println("response.contentType() = " + response.contentType());
         System.out.println("response.getContentType() = " + response.getContentType());
 
@@ -67,7 +67,7 @@ public class TestOneSpartan2 {
     @Test
     public void testJSONBody(){
 
-        Response response = get("http://44.211.192.252:8000/api/spartans/21");
+        Response response = get("/spartans/21");
         response.prettyPrint();
 
         // can navigate thru json to get certain element
