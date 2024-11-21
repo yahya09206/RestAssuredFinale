@@ -2,6 +2,7 @@ package com.yahya.day2;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -33,5 +34,7 @@ public class TestSpartan3 {
 
         Response response = get("/spartans");
         response.prettyPrint();
+
+        Assertions.assertEquals(200, response.statusCode());
     }
 }
