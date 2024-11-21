@@ -50,7 +50,22 @@ public class TestSpartan3 {
          */
         List<Integer> idList = response.path("id");
         System.out.println("idList = " + idList);
+    }
 
+    /**
+     * Send request to GET /spartans and provide accept header as application/xml
+     * and check status code 200 and content type application xml
+     */
+    @Test
+    public void testGetXMLResponse(){
+
+        /**
+         * RestAssured uses method chaining extensively to combine all parts of the request
+         * and verify the response in one shot
+         * here since we need to provide additional header information to get xml response
+         * we will start learning some method chaining to see
+         * how we can provide additional information to the request
+         */
 
     }
 }
