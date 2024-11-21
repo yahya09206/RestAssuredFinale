@@ -83,6 +83,7 @@ public class TestSpartan3 {
                 .queryParam("nameContains", "Ea")
                 .queryParam("gender", "Male")
                 .when().get("/spartans/search");
+        response.prettyPrint();
 
 
     }
