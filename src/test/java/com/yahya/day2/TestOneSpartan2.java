@@ -20,14 +20,14 @@ public class TestOneSpartan2 {
     @BeforeAll
     public static void setup(){
 
-        baseURI = "44.211.192.252:8000";
+        baseURI = "http://44.211.192.252:8000";
         basePath = "/api";
     }
 
     @Test
     public void getOneSpartan(){
 
-        Response response = get("spartans/21");
+        Response response = get("/spartans/21");
         System.out.println("response.statusCode() = " + response.statusCode());
 
         response.prettyPrint();
