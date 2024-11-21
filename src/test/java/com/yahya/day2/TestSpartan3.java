@@ -66,8 +66,10 @@ public class TestSpartan3 {
          * we will start learning some method chaining to see
          * how we can provide additional information to the request
          */
-        Response response = given().header("Accept", "application/xml").
+        Response response = given().//header("Accept", "application/xml").
+                            accept(ContentType.XML).
                             when().get("/spartans");
 
+        response.prettyPrint();
     }
 }
