@@ -82,5 +82,9 @@ public class TestOneSpartan {
         System.out.println("myPhone = " + myPhone);
 
 
+        Assertions.assertEquals(21, myId);
+        Assertions.assertEquals("Mark", myName);
+        Assertions.assertEquals("Male", myGender);
+        Assertions.assertEquals(1852873386, myPhone);
     }
 }
