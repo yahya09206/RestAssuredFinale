@@ -62,5 +62,20 @@ public class TestOneSpartan {
         System.out.println("response.path(\"gender\") = " + response.path("gender"));
         System.out.println("response.path(\"phone\") = " + response.path("phone"));
 
+        /**
+         * {
+         *     "id": 21,
+         *     "name": "Mark",
+         *     "gender": "Male",
+         *     "phone": 1852873386
+         * }
+         */
+        // save the json value we get from the key into variables
+        int myId = response.path("id");
+        String myName = response.path("name");
+        String myGender = response.path("gender");
+        long myPhone = response.path("phone");
+
+
     }
 }
