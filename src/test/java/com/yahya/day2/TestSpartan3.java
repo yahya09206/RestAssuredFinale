@@ -96,5 +96,9 @@ public class TestSpartan3 {
         // get the 2nd person's id
         System.out.println("response.path(\"content.name[1]\") = " + response.path("content.id[1]"));
 
+        // store all names into list
+        List<String> allNames = response.path("content.name");
+        System.out.println("allNames = " + allNames);
+
     }
 }
