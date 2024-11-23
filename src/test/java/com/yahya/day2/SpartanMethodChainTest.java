@@ -13,11 +13,14 @@ public class SpartanMethodChainTest extends SpartanTestBase {
     @Test
     public void getOneSpartanTest(){
 
-        given().log().all().pathParam("id", 1)
+        given().log().all().pathParam("id", 21)
                 .accept(ContentType.JSON)
                 .when().get("/spartans/{id}")
                 .then().statusCode(is(200))
                 //.header("Content-Type", ContentType.JSON.toString())
-                .contentType(ContentType.JSON);
+                .contentType(ContentType.JSON)
+                .body("id", is(21))
+                .body("name", is("Mark"));
+
     }
 }
