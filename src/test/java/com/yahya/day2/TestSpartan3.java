@@ -93,5 +93,8 @@ public class TestSpartan3 {
         // preferred way of getting specific item from index
         System.out.println("response.path(\"content.name[0]\") = " + response.path("content.name[0]"));
 
+        // get the 2nd person's id
+        System.out.println("response.path(\"content.name[1]\") = " + response.path("content.id[1]"));
+
     }
 }
