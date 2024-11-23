@@ -107,7 +107,5 @@ public class TestSpartan3 {
 
         Response response = given().pathParam("id", 30).log().all().when().get("/spartans/{id}");
         response.prettyPrint();
-
-
     }
 }
