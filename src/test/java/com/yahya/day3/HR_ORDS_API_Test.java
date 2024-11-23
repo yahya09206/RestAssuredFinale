@@ -38,5 +38,7 @@ public class HR_ORDS_API_Test {
 
         Assertions.assertEquals(200, response.statusCode());
         Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
+        int countValue = response.path("count");
+        Assertions.assertEquals(19, countValue);
     }
 }
