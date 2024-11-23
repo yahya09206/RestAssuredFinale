@@ -1,7 +1,9 @@
 package com.yahya.day3;
 
+import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 
@@ -10,8 +12,8 @@ public class HR_ORDS_API_Test {
     @BeforeAll
     public static void setup(){
 
-        baseURI = "http://44.211.192.252:8000";
-        basePath = "/api";
+        baseURI = "http://44.211.192.252:1000";
+        basePath = "/ords/hr";
     }
 
     @AfterAll
@@ -24,5 +26,12 @@ public class HR_ORDS_API_Test {
          * RestAssured.reset();
          */
         reset();
+    }
+
+    @Test
+    public void testGetAllJobs(){
+
+        Response response = get("/jobs");
+        response.prettyPrint();
     }
 }
