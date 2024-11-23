@@ -2,6 +2,9 @@ package com.yahya.day3;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -33,5 +36,16 @@ public class HamcrestMatcherTest {
 
         assertThat(msg, startsWith("B23"));
         assertThat(msg, startsWithIgnoringCase("b23"));
+    }
+
+    @Test
+    public void testCollection(){
+
+        List<Integer> numberList = Arrays.asList(3, 5, 1, 77, 44, 76);
+
+        assertThat(numberList, hasSize(6));
+        assertThat(numberList, hasItem(77));
+        assertThat(numberList, hasItems(5, 44));
+        assertThat(numberList, everyItem(greaterThan(0)));
     }
 }
