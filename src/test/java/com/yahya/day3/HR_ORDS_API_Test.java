@@ -66,7 +66,7 @@ public class HR_ORDS_API_Test {
         int countValue = response.path("count");
         Assertions.assertEquals(5, countValue);
 
-        String lastJob = response.path("items[-1].job_title");
+        String lastJob = response.path("items[-1].job_id");
         Assertions.assertEquals("AD_VP", lastJob);
     }
 
