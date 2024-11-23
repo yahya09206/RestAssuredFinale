@@ -105,6 +105,7 @@ public class TestSpartan3 {
     @Test
     public void testOneSpartanPathParam(){
 
-        Response response = given().pathParam("id", 1).when().get("/spartans/{id}");
+        Response response = given().pathParam("id", 30).when().get("/spartans/{id}");
+        response.prettyPrint();
     }
 }
