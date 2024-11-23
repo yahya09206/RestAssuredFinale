@@ -51,5 +51,23 @@ public class HR_ORDS_API_Test {
         System.out.println("jobTitles = " + jobTitles);
     }
 
+    /**
+     * Test testJobsWithQueryParam
+     * 1. Send request to GET /jobs?limit=5
+     * 2. log everything about the request
+     * 3. verify count value is 5
+     * 4. verify the value of last job_title is AD_VP
+     */
+    @Test
+    public void testJobsWithQueryParam(){
+
+        Response response = given().log().all().queryParam("limit", 5).when().get("/jobs");
+        response.prettyPrint();
+        int countValue = response.path("count");
+        Assertions.assertEquals(5, countValue);
+
+        String lastJob = response.path("items[-1].job_title");
+        Assertions.assertEquals("AD_VP", lastJob);
+    }
 
 }
