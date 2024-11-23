@@ -67,7 +67,17 @@ public class HR_ORDS_API_Test {
         Assertions.assertEquals(5, countValue);
 
         String lastJob = response.path("items[-1].job_id");
+        System.out.println("lastJob = " + lastJob);
         Assertions.assertEquals("AD_VP", lastJob);
+    }
+
+    @Test
+    public void testSingleJobWithPathParam(){
+
+        Response response = given().log().all().pathParam("job_id", "AD_VP")
+                            .when().get("/jobs/{job_id}");
+        Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
+        Assertions.assertEquals("Administration Vice President", response.path("job_title"));
     }
 
 }
