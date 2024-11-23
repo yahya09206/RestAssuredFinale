@@ -43,11 +43,13 @@ public class HR_ORDS_API_Test {
         int countValue = response.path("count");
         Assertions.assertEquals(19, countValue);
 
-        String secondJobId = response.path("Items[1].job_id");
+        String secondJobId = response.path("items.job_id[1]");
         System.out.println("secondJobId = " + secondJobId);
 
         // Save all job titles into a list of string
         List<String> jobTitles = response.path("items.job_title");
         System.out.println("jobTitles = " + jobTitles);
     }
+
+
 }
