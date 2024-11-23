@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class HR_ORDS_API_Test {
@@ -40,5 +42,12 @@ public class HR_ORDS_API_Test {
         Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
         int countValue = response.path("count");
         Assertions.assertEquals(19, countValue);
+
+        String secondJobId = response.path("Items[1].job_id");
+        System.out.println("secondJobId = " + secondJobId);
+
+        // Save all job titles into a list of string
+        List<String> jobTitles = response.path("items.job_title");
+        System.out.println("jobTitles = " + jobTitles);
     }
 }
