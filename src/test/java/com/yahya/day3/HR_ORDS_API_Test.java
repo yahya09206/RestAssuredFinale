@@ -1,7 +1,9 @@
 package com.yahya.day3;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -33,5 +35,8 @@ public class HR_ORDS_API_Test {
 
         Response response = given().log().all().when().get("/jobs");
         response.prettyPrint();
+
+        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(ContentType.JSON.toString(), response.contentType());
     }
 }
