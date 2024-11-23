@@ -101,4 +101,10 @@ public class TestSpartan3 {
         System.out.println("allNames = " + allNames);
 
     }
+
+    @Test
+    public void testOneSpartanPathParam(){
+
+        Response response = given().pathParam("id", 1).when().get("/spartans/{id}");
+    }
 }
