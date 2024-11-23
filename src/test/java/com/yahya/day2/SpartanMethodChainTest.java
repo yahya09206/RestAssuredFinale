@@ -23,4 +23,20 @@ public class SpartanMethodChainTest extends SpartanTestBase {
                 .body("name", is("Mark"));
 
     }
+
+    @Test
+    public void testSearch(){
+
+        given().log().all().queryParam("nameContains", "Ea")
+                .queryParam("gender", "Male")
+                .when().get("/spartans/search")
+                .then().log().all()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .body("totalElement", is(3))
+                .body("content",hasSize(3))
+                .body("content.name", hasItem("Sean"))
+                .body("content.gender", everyItem(is("Male")))
+                .body("content.name", everyItem(is(containsStringIgnoringCase("Ea"))));
+    }
 }
