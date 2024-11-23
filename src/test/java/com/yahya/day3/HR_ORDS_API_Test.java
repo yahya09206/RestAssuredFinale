@@ -31,7 +31,7 @@ public class HR_ORDS_API_Test {
     @Test
     public void testGetAllJobs(){
 
-        Response response = get("/jobs");
+        Response response = given().log().all().when().get("/jobs");
         response.prettyPrint();
     }
 }
