@@ -85,6 +85,8 @@ public class TestSpartan3 {
                 .when().get("/spartans/search");
         response.prettyPrint();
 
+        // get path to total elements
+        System.out.println("response.path(\"totalElement\") = " + response.path("totalElement"));
 
     }
 }
