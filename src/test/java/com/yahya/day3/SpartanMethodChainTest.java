@@ -1,4 +1,4 @@
-package com.yahya.day2;
+package com.yahya.day3;
 
 import com.yahya.utility.SpartanTestBase;
 import io.restassured.http.ContentType;
