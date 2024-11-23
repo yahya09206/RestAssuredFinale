@@ -88,5 +88,10 @@ public class TestSpartan3 {
         // get path to total elements response
         System.out.println("response.path(\"totalElement\") = " + response.path("totalElement"));
 
+        // get the first person's name
+        System.out.println("response.path(\"content[0].name\") = " + response.path("content[0].name"));
+        // preferred way of getting specific item from index
+        System.out.println("response.path(\"content.name[0]\") = " + response.path("content.name[0]"));
+
     }
 }
