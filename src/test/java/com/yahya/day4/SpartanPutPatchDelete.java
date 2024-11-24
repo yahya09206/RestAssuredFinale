@@ -2,6 +2,7 @@ package com.yahya.day4;
 
 import com.yahya.utility.SpartanTestBase;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
@@ -69,10 +70,17 @@ public class SpartanPutPatchDelete extends SpartanTestBase {
         /**
          * DELETE /spartans/{id}
          * Once data is deleted, test will fail
+         * In order to avoid failing, we can send a request to GET /spartans endpoint
+         * and get the existing id in the system
          */
-        given().log().all().pathParam("id", 88)
+        Response response = get("/spartans");
+        int lastId = response.path("id[-1]");
+
+        given().log().all().pathParam("id", lastId)
                 .when().delete("/spartans/{id}")
                 .then().log().all().statusCode(204);
+        // we can additionally send another get request to this id and expect a 404 to make sure it actually worked
+
 
     }
 
