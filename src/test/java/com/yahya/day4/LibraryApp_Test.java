@@ -2,6 +2,7 @@ package com.yahya.day4;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,22 @@ public class LibraryApp_Test {
                 .formParam("email", "librarian5@library")
                 .formParam("password", "libraryUser")
                 .when().post("/login")
+                .then().log().all().statusCode(200);
+    }
+
+    @Test
+    public void testDashboardStats(){
+
+        Response response = given().log().all().contentType(ContentType.URLENC)
+                .formParam("email", "librarian5@library")
+                .formParam("password", "libraryUser")
+                .when().post("/login");
+
+        String tokenFromRes = response.path("token");
+        System.out.println("tokenFromRes = " + tokenFromRes);
+
+        given().log().all().header("x-library-token", tokenFromRes)
+                .when().get("/dashboard-stats")
                 .then().log().all().statusCode(200);
     }
 }
