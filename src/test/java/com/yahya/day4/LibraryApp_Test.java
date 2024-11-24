@@ -53,7 +53,7 @@ public class LibraryApp_Test {
         System.out.println("tokenFromRes = " + tokenFromRes);
 
         given().log().all().header("x-library-token", tokenFromRes)
-                .when().get("/dashboard-stats")
+                .when().get("/dashboard_stats")
                 .then().log().all().statusCode(200);
     }
 }
