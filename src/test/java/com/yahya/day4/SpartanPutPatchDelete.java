@@ -79,9 +79,6 @@ public class SpartanPutPatchDelete extends SpartanTestBase {
         given().log().all().pathParam("id", lastId)
                 .when().delete("/spartans/{id}")
                 .then().log().all().statusCode(204);
-        // we can additionally send another get request to this id and expect a 404 to make sure it actually worked
-
 
     }
-
 }
