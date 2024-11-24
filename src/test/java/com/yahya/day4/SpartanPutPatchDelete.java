@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class SpartanPutPatch extends SpartanTestBase {
+public class SpartanPutPatchDelete extends SpartanTestBase {
 
     /**
      * PUT /spartans/{id}
@@ -63,4 +63,17 @@ public class SpartanPutPatch extends SpartanTestBase {
                 .statusCode(equalTo(204));
 
     }
+
+    @Test
+    public void testDelete(){
+        /**
+         * DELETE /spartans/{id}
+         * Once data is deleted, test will fail
+         */
+        given().log().all().pathParam("id", 88)
+                .when().delete("/spartans/{id}")
+                .then().log().all().statusCode(204);
+
+    }
+
 }
