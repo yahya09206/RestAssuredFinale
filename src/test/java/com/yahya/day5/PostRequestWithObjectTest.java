@@ -95,7 +95,7 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
                 .contentType(ContentType.JSON)
                 .body(updatedBodyMap).
         when()
-                .post("spartans/{id}").
+                .put("spartans/{id}").
         then()
                 .log().all()
                 .statusCode(204);
