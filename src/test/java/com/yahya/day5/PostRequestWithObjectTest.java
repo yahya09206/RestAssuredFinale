@@ -3,6 +3,9 @@ package com.yahya.day5;
 import com.yahya.utility.SpartanTestBase;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class PostRequestWithObjectTest extends SpartanTestBase {
 
 
@@ -25,6 +28,9 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
     @Test
     public void testPostWithMap(){
 
-
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name", "API POST");
+        bodyMap.put("gender", "Male");
+        bodyMap.put("phone", "1231231231");
     }
 }
