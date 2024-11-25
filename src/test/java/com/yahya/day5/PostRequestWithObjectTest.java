@@ -2,6 +2,7 @@ package com.yahya.day5;
 
 import com.github.javafaker.Faker;
 import com.yahya.utility.SpartanTestBase;
+import com.yahya.utility.SpartanUtil;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
@@ -62,7 +63,7 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
 //
 //        System.out.println("bodyMap = " + bodyMap);
 
-        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        Map<String, Object> bodyMap = SpartanUtil.getRandomSpartanMapBody();
         given()
                 .log().all()
                 .contentType(ContentType.JSON)
