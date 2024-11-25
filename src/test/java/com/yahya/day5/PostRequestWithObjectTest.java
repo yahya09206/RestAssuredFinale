@@ -1,10 +1,13 @@
 package com.yahya.day5;
 
 import com.yahya.utility.SpartanTestBase;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import static io.restassured.RestAssured.*;
 
 public class PostRequestWithObjectTest extends SpartanTestBase {
 
@@ -32,5 +35,17 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
         bodyMap.put("name", "API POST");
         bodyMap.put("gender", "Male");
         bodyMap.put("phone", "1231231231");
+
+        System.out.println("bodyMap = " + bodyMap);
+
+        given()
+                .log().all()
+                .contentType(ContentType.JSON)
+                .body(bodyMap).
+                when()
+                .post("/spartans")
+        .then()
+                .log().all()
+                .statusCode(201);
     }
 }
