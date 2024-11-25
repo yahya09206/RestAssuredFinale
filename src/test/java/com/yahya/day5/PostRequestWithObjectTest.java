@@ -1,5 +1,6 @@
 package com.yahya.day5;
 
+import com.github.javafaker.Faker;
 import com.yahya.utility.SpartanTestBase;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
@@ -45,6 +46,29 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
                 when()
                 .post("/spartans")
         .then()
+                .log().all()
+                .statusCode(201);
+    }
+
+    @Test
+    public void testPostWithMapAndRandomData(){
+
+        Faker faker = new Faker();
+
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name", faker.name().firstName());
+        bodyMap.put("gender", faker.demographic().sex());
+        bodyMap.put("phone", faker.number().numberBetween(5000000000L, 9999999999L));
+
+        System.out.println("bodyMap = " + bodyMap);
+
+        given()
+                .log().all()
+                .contentType(ContentType.JSON)
+                .body(bodyMap).
+                when()
+                .post("/spartans")
+                .then()
                 .log().all()
                 .statusCode(201);
     }
