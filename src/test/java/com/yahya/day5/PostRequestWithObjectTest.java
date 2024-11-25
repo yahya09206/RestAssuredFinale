@@ -74,4 +74,30 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
                 .log().all()
                 .statusCode(201);
     }
+
+    /**
+     * Send request to PUT /spartans/{id} with Random Map Body
+     */
+    @Test
+    public void testUpdate1SpartanWithRandomBody(){
+
+        // Instead of guessing what id exists in server
+        // I will send request to get all spartans and get last json object id
+        int lastId = get("/spartans").path("id[-1]");
+        System.out.println("lastId = " + lastId);
+
+        // prepare updated body
+        Map<String, Object> updatedBodyMap = SpartanUtil.getRandomSpartanMapBody();
+
+        given()
+                .log().all()
+                .pathParam("id", lastId)
+                .contentType(ContentType.JSON)
+                .body(updatedBodyMap).
+        when()
+                .post("spartans/{id}").
+        then()
+                .log().all()
+                .statusCode(204);
+    }
 }
