@@ -53,15 +53,16 @@ public class PostRequestWithObjectTest extends SpartanTestBase {
     @Test
     public void testPostWithMapAndRandomData(){
 
-        Faker faker = new Faker();
+//        Faker faker = new Faker();
+//
+//        Map<String, Object> bodyMap = new LinkedHashMap<>();
+//        bodyMap.put("name", faker.name().firstName());
+//        bodyMap.put("gender", faker.demographic().sex());
+//        bodyMap.put("phone", faker.number().numberBetween(5000000000L, 9999999999L));
+//
+//        System.out.println("bodyMap = " + bodyMap);
 
         Map<String, Object> bodyMap = new LinkedHashMap<>();
-        bodyMap.put("name", faker.name().firstName());
-        bodyMap.put("gender", faker.demographic().sex());
-        bodyMap.put("phone", faker.number().numberBetween(5000000000L, 9999999999L));
-
-        System.out.println("bodyMap = " + bodyMap);
-
         given()
                 .log().all()
                 .contentType(ContentType.JSON)
