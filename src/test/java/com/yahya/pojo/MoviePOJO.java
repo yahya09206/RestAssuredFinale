@@ -1,12 +1,15 @@
 package com.yahya.pojo;
 
-public class Movie {
+public class MoviePOJO {
 
     private String title;
     private String Year;
     private String imdbID;
     private String Type;
     private String Poster;
+
+    public MoviePOJO() {
+    }
 
     public String getTitle() {
         return title;
