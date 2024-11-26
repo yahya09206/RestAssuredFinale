@@ -1,7 +1,10 @@
 package com.yahya.pojo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MoviePOJO {
 
+    @JsonProperty
     private String title;
     private String year;
     private String imdbID;
