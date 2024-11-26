@@ -24,6 +24,12 @@ public class Spartan {
         // no body required
     }
 
+    public Spartan(String name, String gender, long phone) {
+        this.name = name;
+        this.gender = gender;
+        this.phone = phone;
+    }
+
     public String getName() {
         return name;
     }
