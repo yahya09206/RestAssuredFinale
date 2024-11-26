@@ -1,6 +1,8 @@
 package com.yahya.day6;
 
+import com.yahya.pojo.MoviePOJO;
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -22,10 +24,13 @@ public class MovieAPI_Test {
     @Test
     public void testMovies(){
 
-        given()
+        JsonPath jsonPath = given()
                 .log().uri()
                 .queryParam("apikey", "f90e5bb4")
                 .queryParam("s", "The Mandalorian").
-                when().get("").prettyPeek();
+                when().get("").prettyPeek()
+                .jsonPath();
+
+        jsonPath.getObject("Search[0]", MoviePOJO.class);
     }
 }

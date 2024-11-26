@@ -3,10 +3,10 @@ package com.yahya.pojo;
 public class MoviePOJO {
 
     private String title;
-    private String Year;
+    private String year;
     private String imdbID;
-    private String Type;
-    private String Poster;
+    private String type;
+    private String poster;
 
     public MoviePOJO() {
     }
@@ -20,11 +20,11 @@ public class MoviePOJO {
     }
 
     public String getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(String year) {
-        Year = year;
+        this.year = year;
     }
 
     public String getImdbID() {
@@ -36,29 +36,29 @@ public class MoviePOJO {
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public String getPoster() {
-        return Poster;
+        return poster;
     }
 
     public void setPoster(String poster) {
-        Poster = poster;
+        this.poster = poster;
     }
 
     @Override
     public String toString() {
         return "Movie{" +
                 "title='" + title + '\'' +
-                ", Year='" + Year + '\'' +
+                ", Year='" + year + '\'' +
                 ", imdbID='" + imdbID + '\'' +
-                ", Type='" + Type + '\'' +
-                ", Poster='" + Poster + '\'' +
+                ", Type='" + type + '\'' +
+                ", Poster='" + poster + '\'' +
                 '}';
     }
 }
