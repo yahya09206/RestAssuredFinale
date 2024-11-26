@@ -87,7 +87,7 @@ public class RestAssuredJsonPathMethods extends SpartanTestBase {
         System.out.println("allNumbers = " + allNumbers);
 
         // store first json in the result as SpartanWithID POJO
-        SpartanWithID sp1 = jsonPath.getObject("content[]", SpartanWithID.class);
+        SpartanWithID sp1 = jsonPath.getObject("content[0]", SpartanWithID.class);
         System.out.println("sp1 = " + sp1);
 
         List<SpartanWithID> allSpartans = jsonPath.getList("content", SpartanWithID.class);
