@@ -1,5 +1,6 @@
 package com.yahya.day5;
 
+import com.yahya.pojo.SpartanWithID;
 import com.yahya.utility.SpartanTestBase;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -84,6 +85,11 @@ public class RestAssuredJsonPathMethods extends SpartanTestBase {
 
         List<Long> allNumbers = jsonPath.getList("content.phone", Long.class);
         System.out.println("allNumbers = " + allNumbers);
+
+        // store first json in the result as SpartanWithID POJO
+        SpartanWithID sp1 = jsonPath.getObject("content[]", SpartanWithID.class);
+        System.out.println("sp1 = " + sp1);
     }
+
 
 }
