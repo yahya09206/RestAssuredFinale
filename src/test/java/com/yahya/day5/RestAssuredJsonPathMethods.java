@@ -5,6 +5,8 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
+import java.util.Map;
+
 import static io.restassured.RestAssured.*;
 
 public class RestAssuredJsonPathMethods extends SpartanTestBase {
@@ -50,6 +52,12 @@ public class RestAssuredJsonPathMethods extends SpartanTestBase {
         System.out.println("myId = " + myId);
         System.out.println("myName = " + myName);
         System.out.println("myPhone = " + myPhone);
+
+        // store json object into a Map object
+        // the path to get entire body is an empty string
+        // no need for a path to navigate to this json
+        Map<String, Object> responseBodyAsMap = jsonPath.getMap("");
+        System.out.println("responseBodyAsMap = " + responseBodyAsMap);
 
     }
 }
