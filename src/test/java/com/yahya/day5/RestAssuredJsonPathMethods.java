@@ -5,6 +5,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
@@ -76,6 +77,13 @@ public class RestAssuredJsonPathMethods extends SpartanTestBase {
         Map<String, Object> responseBodyAsMap = jsonPath.getMap("content[0]");
         System.out.println("responseBodyAsMap = " + responseBodyAsMap);
 
+        //List<String> allNames = jsonPath.getList("content.name");
+        // This version gives the option to specify the class type you want each item to have as List item
+        List<String> allNames = jsonPath.getList("content.name", String.class);
+        System.out.println("allNames = " + allNames);
+
+        List<Long> allNumbers = jsonPath.getList("content.phone", Long.class);
+        System.out.println("allNumbers = " + allNumbers);
     }
 
 }
