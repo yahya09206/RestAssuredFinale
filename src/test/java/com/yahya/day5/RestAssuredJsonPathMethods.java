@@ -73,6 +73,9 @@ public class RestAssuredJsonPathMethods extends SpartanTestBase {
         System.out.println("jsonPath.getLong(\"content[2].phone\") = " + jsonPath.getLong("content[2].phone"));
         System.out.println("jsonPath.getString(\"content[-1].name\") = " + jsonPath.getString("content[-1].name"));
 
+        Map<String, Object> responseBodyAsMap = jsonPath.getMap("content[0]");
+        System.out.println("responseBodyAsMap = " + responseBodyAsMap);
+
     }
 
 }
