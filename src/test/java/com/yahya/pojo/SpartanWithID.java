@@ -2,7 +2,24 @@ package com.yahya.pojo;
 
 public class SpartanWithID {
 
-    private int id;
+    private int id ;
+    private String name ;
+    private String gender ;
+    private long phone ;
+
+    public SpartanWithID(){
+
+    }
+
+    @Override
+    public String toString() {
+        return "SpartanWithID{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phone=" + phone +
+                '}';
+    }
 
     public int getId() {
         return id;
@@ -10,13 +27,6 @@ public class SpartanWithID {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    private String name;
-    private String gender;
-    private long phone;
-
-    public SpartanWithID() {
     }
 
     public String getName() {
@@ -41,14 +51,5 @@ public class SpartanWithID {
 
     public void setPhone(long phone) {
         this.phone = phone;
-    }
-
-    @Override
-    public String toString() {
-        return "SpartanWithID{" +
-                "name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", phone=" + phone +
-                '}';
     }
 }
