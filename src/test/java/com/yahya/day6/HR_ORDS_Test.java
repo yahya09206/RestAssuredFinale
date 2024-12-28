@@ -8,6 +8,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class HR_ORDS_Test extends HrORDSTestBase {
@@ -23,5 +25,9 @@ public class HR_ORDS_Test extends HrORDSTestBase {
         // ignore the json fields we don't need
         Jobs jobs1 = jsonPath.getObject("items[0]", Jobs.class);
         System.out.println("jobs1 = " + jobs1);
+
+        // save all jobs into a List<jobs>
+        List<Jobs> allJobs = jsonPath.getList("items", Jobs.class);
+        System.out.println("allJobs = " + allJobs);
     }
 }
