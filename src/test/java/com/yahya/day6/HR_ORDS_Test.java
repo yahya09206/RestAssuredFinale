@@ -16,5 +16,9 @@ public class HR_ORDS_Test extends HrORDSTestBase {
     public void testJobs(){
 
         JsonPath jsonPath = given().log().uri().when().get("/jobs").prettyPeek().jsonPath();
+
+        // De-serialize first json object from json array
+        // we want to be able to follow java naming convention for pojo fields
+        // ignore the json fields we don't need
     }
 }
