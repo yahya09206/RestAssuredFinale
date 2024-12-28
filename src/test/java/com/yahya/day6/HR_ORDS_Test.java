@@ -1,5 +1,6 @@
 package com.yahya.day6;
 
+import com.yahya.pojo.Jobs;
 import com.yahya.utility.HrORDSTestBase;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -20,5 +21,7 @@ public class HR_ORDS_Test extends HrORDSTestBase {
         // De-serialize first json object from json array
         // we want to be able to follow java naming convention for pojo fields
         // ignore the json fields we don't need
+        Jobs jobs1 = jsonPath.getObject("items[0]", Jobs.class);
+        System.out.println("jobs1 = " + jobs1);
     }
 }

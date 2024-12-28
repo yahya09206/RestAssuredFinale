@@ -1,7 +1,10 @@
 package com.yahya.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+// can instruct jackson library to ignore an json fields that do not match what is in our pojo class
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Jobs {
 
     @JsonProperty("job_id")
