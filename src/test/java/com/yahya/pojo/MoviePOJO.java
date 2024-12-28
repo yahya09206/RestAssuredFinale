@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MoviePOJO {
 
+    // @JsonProperty will match the java fields to the json fields while still using proper naming convention
     @JsonProperty("Title")
     private String title;
     @JsonProperty("Year")
