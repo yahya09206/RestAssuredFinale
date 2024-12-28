@@ -37,6 +37,8 @@ public class HR_ORDS_Test extends HrORDSTestBase {
 
         Car car1 = new Car("Model3", "Tesla", 2020, true);
         System.out.println("car1 = " + car1);
+        car1.setModel("Model X");
+        System.out.println("car1 = " + car1);
 
     }
 }
