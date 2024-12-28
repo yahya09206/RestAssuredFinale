@@ -1,5 +1,6 @@
 package com.yahya.day6;
 
+import com.yahya.pojo.Car;
 import com.yahya.pojo.Jobs;
 import com.yahya.utility.HrORDSTestBase;
 import io.restassured.RestAssured;
@@ -29,5 +30,13 @@ public class HR_ORDS_Test extends HrORDSTestBase {
         // save all jobs into a List<jobs>
         List<Jobs> allJobs = jsonPath.getList("items", Jobs.class);
         System.out.println("allJobs = " + allJobs);
+    }
+
+    @Test
+    public void testCarPOJO_Class(){
+
+        Car car1 = new Car("Model3", "Tesla", 2020, true);
+        System.out.println("car1 = " + car1);
+
     }
 }
