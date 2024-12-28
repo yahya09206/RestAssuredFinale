@@ -1,5 +1,6 @@
 package com.yahya.day6;
 
+import com.yahya.pojo.HarryPotterPOJO;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,5 +27,8 @@ public class HarryPotterDeserialization {
     @Test
     public void testCharacters(){
         JsonPath jsonPath = get("/characters").prettyPeek().jsonPath();
+
+        HarryPotterPOJO harryPotterPOJO = jsonPath.getObject("[0]", HarryPotterPOJO.class);
+        System.out.println("harryPotterPOJO = " + harryPotterPOJO);
     }
 }
