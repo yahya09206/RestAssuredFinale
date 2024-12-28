@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.*;
 
 public class HarryPotterDeserialization {
@@ -30,5 +32,8 @@ public class HarryPotterDeserialization {
 
         HarryPotterPOJO harryPotterPOJO = jsonPath.getObject("[0]", HarryPotterPOJO.class);
         System.out.println("harryPotterPOJO = " + harryPotterPOJO);
+
+        List<HarryPotterPOJO> allCharacters = jsonPath.getList("", HarryPotterPOJO.class);
+        System.out.println("allCharacters = " + allCharacters);
     }
 }

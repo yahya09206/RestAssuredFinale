@@ -1,7 +1,10 @@
 package com.yahya.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +31,6 @@ public class HarryPotterPOJO {
     private String gender;
     private String house;
     private Boolean wizard;
+    @JsonProperty("alternate_names")
+    private List<String> alternateNames;
 }
