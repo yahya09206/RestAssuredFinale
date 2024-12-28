@@ -2,6 +2,7 @@ package com.yahya.day6;
 
 import com.yahya.pojo.Car;
 import com.yahya.pojo.Jobs;
+import com.yahya.pojo.JobsV2;
 import com.yahya.utility.HrORDSTestBase;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -30,6 +31,9 @@ public class HR_ORDS_Test extends HrORDSTestBase {
         // save all jobs into a List<jobs>
         List<Jobs> allJobs = jsonPath.getList("items", Jobs.class);
         System.out.println("allJobs = " + allJobs);
+
+        JobsV2 jobsV2 = jsonPath.getObject("items[0]", JobsV2.class);
+        System.out.println("jobsV2 = " + jobsV2);
     }
 
     @Test
@@ -41,4 +45,5 @@ public class HR_ORDS_Test extends HrORDSTestBase {
         System.out.println("car1 = " + car1);
 
     }
+
 }
