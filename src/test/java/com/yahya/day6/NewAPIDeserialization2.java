@@ -49,6 +49,7 @@ public class NewAPIDeserialization2 {
         // find all articles where source id is not null
         List<Article2> article2s = jsonPath.getList("articles", Article2.class);
 
+        // loop to go through articles
         for (Article2 each : article2s) {
             if (each.getSource().getId() != null){
                 System.out.println("each.getSource().getId() = " + each.getSource().getId());
