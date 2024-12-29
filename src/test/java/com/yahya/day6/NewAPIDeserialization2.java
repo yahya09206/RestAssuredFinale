@@ -46,7 +46,7 @@ public class NewAPIDeserialization2 {
         //get source id
         System.out.println("article2.getSource().getId() = " + article2.getSource().getId());
 
-        // find all articles where source id is not null
+        // find all articles where source id is not null for ids
         List<Article2> article2s = jsonPath.getList("articles", Article2.class);
 
         // loop to go through articles and get authors
