@@ -35,6 +35,6 @@ public class ZipcodeAPITest {
                 .contentType(ContentType.JSON)
                 .body("country", is("United States"))
                 .body("places[0].state", is("Washington"))
-                .body("post code", equalTo(98146));
+                .body("'post code'", equalTo("98146"));
     }
 }
