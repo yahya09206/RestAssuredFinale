@@ -4,6 +4,8 @@ import io.restassured.http.ContentType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -36,5 +38,12 @@ public class ZipcodeAPITest {
                 .body("country", is("United States"))
                 .body("places[0].state", is("Washington"))
                 .body("'post code'", equalTo("98146"));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {90210, 98146, 98118, 98101})
+    public void testZipToCityDDT(int zipParam){
+        System.out.println("zipParam = " + zipParam);
+        given().log().uri().pathParam("zip", zipParam).when().get("/{zip}").then().statusCode(200);
     }
 }
