@@ -11,6 +11,6 @@ public class Junit5FeaturesTest {
     @Test
     public void testAdd(){
 
-        assertEquals(10, 5+5);
+        assertEquals(10, 5+5, "Hey it was not 10");
     }
 }
