@@ -1,11 +1,12 @@
 package com.yahya.day7;
 
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
-
+import static org.hamcrest.Matchers.*;
 public class ZipcodeAPITest {
 
 
@@ -29,8 +30,8 @@ public class ZipcodeAPITest {
                 .log().all()
                 .pathParam("zip", 98146)
                 .when().get("/{zip}")
-                .then().log().all();
+                .then().log().all()
+                .statusCode(is(200))
+                .contentType(ContentType.JSON);
     }
-
-
 }
