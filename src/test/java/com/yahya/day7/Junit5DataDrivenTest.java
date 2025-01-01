@@ -17,4 +17,8 @@ public class Junit5DataDrivenTest {
         System.out.println("names = " + names);
         assertTrue(names.length() > 3);
     }
+
+    public void testPerson(String nameParam, String genderParam, long phoneParam){
+
+    }
 }
