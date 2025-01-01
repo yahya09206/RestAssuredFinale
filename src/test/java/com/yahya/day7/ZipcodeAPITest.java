@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static io.restassured.RestAssured.*;
@@ -42,7 +43,8 @@ public class ZipcodeAPITest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {90210, 98146, 98118, 98101})
+    //@ValueSource(ints = {90210, 98146, 98118, 98101})
+    @CsvFileSource(resources = "/Zipcodes.csv")
     public void testZipToCityDDT(int zipParam){
         System.out.println("zipParam = " + zipParam);
         given().log().uri().pathParam("zip", zipParam).when().get("/{zip}").then().statusCode(200);
