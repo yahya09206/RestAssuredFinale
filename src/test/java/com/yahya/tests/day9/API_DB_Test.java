@@ -54,7 +54,7 @@ public class API_DB_Test extends HrORDSTestBase {
         int expectedCount = Integer.parseInt(dbResultMap.get("REGION_ID"));
         String expectedRegionName = dbResultMap.get("REGION_NAME");
 
-        given().param("region_id", 1).log().uri()
+        given().pathParam("region_id", 1).log().uri()
                 .when().get("/regions/{region_id}")
                 .then().log().all().statusCode(200);
 
