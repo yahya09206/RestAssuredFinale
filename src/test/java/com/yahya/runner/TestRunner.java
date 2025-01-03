@@ -11,7 +11,8 @@ import org.junit.platform.suite.api.*;
 //@SelectClasses(LibraryLoginTest.class)
 //@SelectPackages({"com.yahya.day9"})
 @SelectPackages("com.yahya")
-@IncludeTags({"smoke1", "smoke2"})
+//@IncludeTags({"smoke1", "smoke2"})
+@IncludeTags("smokeAll")
 public class TestRunner {
 
 

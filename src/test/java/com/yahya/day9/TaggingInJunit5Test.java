@@ -3,6 +3,7 @@ package com.yahya.day9;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("smokeAll")
 public class TaggingInJunit5Test {
 
     @Tag("smoke1")
