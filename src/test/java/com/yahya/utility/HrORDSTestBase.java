@@ -12,6 +12,8 @@ public class HrORDSTestBase {
 
         baseURI = "http://44.211.192.252:1000";
         basePath = "/ords/hr";
+
+        DB_Util.createConnection(ConfigReader.read("hr.database.url"), ConfigReader.read("hr.database.username"), ConfigReader.read("hr.database.password"));
     }
 
     @AfterAll
