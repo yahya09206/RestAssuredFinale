@@ -26,5 +26,6 @@ public class HrORDSTestBase {
          * RestAssured.reset();
          */
         reset();
+        DB_Util.destroy();
     }
 }
