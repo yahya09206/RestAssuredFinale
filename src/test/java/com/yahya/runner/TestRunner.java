@@ -12,6 +12,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 //@SelectPackages({"com.yahya.day8"})
 @SelectPackages({"com.yahya.day7", "com.yahya.day1"})
 //@SelectClasses(LibraryLoginTest.class)
+
 public class TestRunner {
 
 
