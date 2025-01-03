@@ -2,6 +2,7 @@ package com.yahya.day8;
 
 import com.yahya.utility.LibraryAPI_BaseTest;
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,6 +18,16 @@ public class LibraryLoginTest extends LibraryAPI_BaseTest {
 
         System.out.println("username = " + username);
         System.out.println("password = " + password);
-    }
 
+        given()
+                .log().all()
+                .contentType(ContentType.URLENC)
+                .formParam("email", username)
+                .formParam("password", password)
+                .when()
+                .post("/login")
+        .then()
+                .log().all()
+                .statusCode(200);
+    }
 }
