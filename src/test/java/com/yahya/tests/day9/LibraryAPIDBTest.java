@@ -21,9 +21,14 @@ public class LibraryAPIDBTest extends LibraryAPI_BaseTest {
         DB_Util.displayAllData();
         String expectedBookCount = DB_Util.getCellValue(1, 1);
 
-        //DB_Util.runQuery("SELECT COUNT(*) FROM USERS");
+        System.out.println("users");
+        DB_Util.runQuery("SELECT COUNT(*) FROM users");
+        DB_Util.displayAllData();
+        String expectedUserCount = DB_Util.getCellValue(1, 1);
 
-        //DB_Util.runQuery("SELECT COUNT(*) FROM BOOK_BORROW WHERE IS_RETURNED = 0");
+        System.out.println("borrowed books");
+        DB_Util.runQuery("SELECT COUNT(*) FROM book_borrow WHERE IS_RETURNED = 0");
+        DB_Util.displayAllData();
+        String expectedBorrowedBookCount = DB_Util.getCellValue(1, 1);
     }
-
 }
