@@ -1,7 +1,5 @@
 package com.yahya.runner;
 
-import com.yahya.day8.BaseAuthTest;
-import com.yahya.day8.LibraryLoginTest;
 import org.junit.platform.suite.api.*;
 
 @Suite
