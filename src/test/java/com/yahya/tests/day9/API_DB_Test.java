@@ -3,6 +3,8 @@ package com.yahya.tests.day9;
 import com.yahya.utility.ConfigReader;
 import com.yahya.utility.DB_Util;
 import com.yahya.utility.HrORDSTestBase;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
@@ -10,6 +12,8 @@ import static org.hamcrest.Matchers.*;
 
 public class API_DB_Test extends HrORDSTestBase {
 
+    @DisplayName("Test Region Count with API from Database")
+    @Tag("db")
     @Test
     public void Region(){
 
@@ -27,6 +31,7 @@ public class API_DB_Test extends HrORDSTestBase {
                 .get("/regions").
                 then()
                     .log().ifValidationFails().statusCode(200)
-                .body("count", is(expectedCount));
+                .body("count", is(expectedCount))
+                .body("items", hasSize(expectedCount));
     }
 }

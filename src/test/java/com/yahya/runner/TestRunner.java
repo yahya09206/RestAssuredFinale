@@ -10,8 +10,8 @@ import org.junit.platform.suite.api.*;
 //@SelectPackages({"com.yahya.day9"})
 @SelectPackages("com.yahya.tests")
 //@IncludeTags({"smoke1", "smoke2"})
-@IncludeTags("smokeAll")
-@ExcludeTags("smoke2")
+@IncludeTags("db")
+//@ExcludeTags("smoke2")
 public class TestRunner {
 
 
