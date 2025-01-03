@@ -11,6 +11,7 @@ public class TaggingInJunit5Test {
         System.out.println("Test1");
     }
 
+    @Tag("smoke2")
     @Test
     public void test2(){
         System.out.println("Test2");
