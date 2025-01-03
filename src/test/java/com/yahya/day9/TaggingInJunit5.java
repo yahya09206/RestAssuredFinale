@@ -1,9 +1,11 @@
 package com.yahya.day9;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 public class TaggingInJunit5 {
 
+    @Tag("smoke1")
     @Test
     public void test1(){
         System.out.println("Test1");
