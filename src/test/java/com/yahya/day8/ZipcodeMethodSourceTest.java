@@ -2,6 +2,11 @@ package com.yahya.day8;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static io.restassured.RestAssured.*;
 
@@ -25,5 +30,23 @@ public class ZipcodeMethodSourceTest {
     @AfterAll
     public static void tearDown(){
         reset();
+    }
+
+    @ParameterizedTest
+    @MethodSource("getAllZipcodes")
+    public void testAllZipcodes(String zipcode){
+        System.out.println("zipcode = " + zipcode);
+    }
+
+    public static List<String> getAllZipcodes(){
+
+        // Send GET https://api.zippopatam.us/us/wa/seattle and store all of the zipcodes
+        // since this is not a @Test method, @BeforeAll will not affect this
+        // and baseURI and basePath will not be set so we need to do it ourselves
+        // one way to do this is to provide full url directly
+        List<String> allZipcodes = get("https://api.zippopotam.us/us/wa/seattle")
+                .path("places.'post code'");
+
+        return allZipcodes;
     }
 }
