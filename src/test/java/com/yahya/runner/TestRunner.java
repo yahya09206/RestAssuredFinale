@@ -10,7 +10,8 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 @Suite
 @SuiteDisplayName("Smoke Test")
 //@SelectPackages({"com.yahya.day8"})
-@SelectClasses(LibraryLoginTest.class)
+@SelectPackages({"com.yahya.day7", "com.yahya.day1"})
+//@SelectClasses(LibraryLoginTest.class)
 public class TestRunner {
 
 
