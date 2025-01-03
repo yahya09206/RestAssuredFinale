@@ -51,13 +51,14 @@ public class API_DB_Test extends HrORDSTestBase {
         Map<String, String> dbResultMap = DB_Util.getRowMap(1);
         System.out.println("dbResultMap = " + dbResultMap);
 
-        int expectedCount = Integer.parseInt(dbResultMap.get("REGION_ID"));
+        int expectedRegionID = Integer.parseInt(dbResultMap.get("REGION_ID"));
         String expectedRegionName = dbResultMap.get("REGION_NAME");
 
         given().pathParam("region_id", 1).log().uri()
                 .when().get("/regions/{region_id}")
-                .then().log().all().statusCode(200);
-
+                .then().log().all().statusCode(200)
+                .body("region_id", equalTo(expectedRegionID))
+                .body("region_name", equalTo(expectedRegionName));
 
     }
 }
