@@ -61,4 +61,15 @@ public class API_DB_Test extends HrORDSTestBase {
                 .body("region_name", equalTo(expectedRegionName));
 
     }
+
+    /**
+     * Parameterized test to get all regionas instead of just one
+     * a coupel of different ways
+     * 1. @ValueSource to provide all 4 region ids
+     * 2. @MethodSource
+     *   -- get all ids from api response GET /regions and return List<Integer></Integer>
+     * 3. @MethodSource
+     *   -- get all ids from SELECT * FROM REGIONS QUERY and return List<String></String>
+     *   and use it as a source
+     */
 }
