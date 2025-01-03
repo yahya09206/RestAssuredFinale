@@ -1,5 +1,8 @@
 package com.yahya.day8;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +14,12 @@ public class MethodSourcePracticeTest {
     // List<String> will only store 1 string per element
     // in order to have more than one value
     // we can use List<Map<String, Object>>
+
+    @ParameterizedTest
+    @MethodSource("getAllStudentInfo")
+    public void testStudentDDT(Map<String, Object> studentInfo) {
+        System.out.println("studentInfo = " + studentInfo);
+    }
 
     // Static method that returns List<Map<String, Object>>
     // Map object should have key: name, gender, phone
