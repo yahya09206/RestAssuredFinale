@@ -23,7 +23,7 @@ public class ZipcodeMethodSourceTest {
 
     @BeforeAll
     public static void init() {
-        baseURI = "https://api.zippopatam.us";
+        baseURI = "https://api.zippopotam.us";
         basePath = "/us";
     }
 
@@ -36,6 +36,14 @@ public class ZipcodeMethodSourceTest {
     @MethodSource("getAllZipcodes")
     public void testAllZipcodes(String zipcode){
         System.out.println("zipcode = " + zipcode);
+
+        given().
+                log().uri().
+                pathParam("zip", zipcode).
+                when().
+                get("/{zip}").
+                then().
+                statusCode(200);
     }
 
     public static List<String> getAllZipcodes(){
@@ -44,7 +52,7 @@ public class ZipcodeMethodSourceTest {
         // since this is not a @Test method, @BeforeAll will not affect this
         // and baseURI and basePath will not be set so we need to do it ourselves
         // one way to do this is to provide full url directly
-        List<String> allZipcodes = get("https://api.zippopotam.us/us/wa/seattle")
+        List<String> allZipcodes = get("https://api.zippopotam.us/us/va/fairfax")
                 .path("places.'post code'");
 
         return allZipcodes;
