@@ -16,6 +16,6 @@ public class JsonSchemaValidationTest extends SpartanTestBase {
         given().pathParam("id", 93).log().uri()
                 .when().get("/spartans/{id}")
                 .then().log().all().statusCode(200)
-                .body();
+                .body(matchesJsonSchemaInClasspath("SingleSpartanSchema.json"));
     }
 }
