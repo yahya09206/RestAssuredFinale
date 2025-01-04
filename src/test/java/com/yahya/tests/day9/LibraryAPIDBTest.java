@@ -2,8 +2,11 @@ package com.yahya.tests.day9;
 
 import com.yahya.utility.DB_Util;
 import com.yahya.utility.LibraryAPI_BaseTest;
+import com.yahya.utility.LibraryAPI_Util;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static io.restassured.RestAssured.*;
 
 public class LibraryAPIDBTest extends LibraryAPI_BaseTest {
 
@@ -30,5 +33,12 @@ public class LibraryAPIDBTest extends LibraryAPI_BaseTest {
         DB_Util.runQuery("SELECT COUNT(*) FROM book_borrow WHERE IS_RETURNED = 0");
         DB_Util.displayAllData();
         String expectedBorrowedBookCount = DB_Util.getCellValue(1, 1);
+
+        /**
+         * Method to return Map<String, String></String,> to return above data
+         * /GET /dashboard_Stats
+         */
+        given().log().all().header("X-LIBRARY-TOKEN", LibraryAPI_Util.getToken()).when()
+                .get("/dashboard_stats").then().log().all().statusCode(200);
     }
 }
