@@ -13,7 +13,10 @@ public class JsonSchemaValidationTest extends SpartanTestBase {
     @Test
     public void testSingleSpartanSchema(){
 
-        given().pathParam("id", 93).log().uri()
+        // generalize without having to use a specific id
+        int firstIdInApp = get("/spartans").path("id[-1]");
+
+        given().pathParam("id", firstIdInApp).log().uri()
                 .when().get("/spartans/{id}")
                 .then().log().all().statusCode(200)
                 .body(matchesJsonSchemaInClasspath("SingleSpartanSchema.json"));
