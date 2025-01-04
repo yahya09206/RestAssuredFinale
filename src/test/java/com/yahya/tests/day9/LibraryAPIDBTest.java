@@ -41,6 +41,7 @@ public class LibraryAPIDBTest extends LibraryAPI_BaseTest {
          */
         given().log().all().header("X-LIBRARY-TOKEN", LibraryAPI_Util.getToken()).when()
                 .get("/dashboard_stats").then().log().all().statusCode(200)
+                //book count won't match because of different users
                 .body("book_count", is(expectedBookCount))
                 .body("borrowed_books", is(expectedBorrowedBookCount))
                 .body("users", is(expectedUserCount));
