@@ -74,4 +74,18 @@ public class NegativeTest extends SpartanTestBase {
                 .body("message", is("Invalid Input!"))
                 .body("errorCount", equalTo(expectedCount));
     }
+
+    @DisplayName("Test Phone upper boundary")
+    @Test
+    public void testPutRequestNegativeScenario(){
+        /**
+         * PUT /spartans/{id}
+         * Valid phone number should be 10-13 digits
+         * anything else should return a 400
+         * defect from upper boundary is not working as expected
+         */
+        int lastId = get("/spartans").path("id[-1]");
+        System.out.println("lastId = " + lastId);
+
+    }
 }
