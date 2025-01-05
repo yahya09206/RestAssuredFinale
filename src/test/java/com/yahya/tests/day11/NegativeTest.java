@@ -5,6 +5,9 @@ import com.yahya.utility.SpartanTestBase;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
@@ -60,4 +63,9 @@ public class NegativeTest extends SpartanTestBase {
     }
 
 
+    @ParameterizedTest
+    @CsvFileSource(resources = "/negativePostData.csv", numLinesToSkip = 1)
+    public void testNegativePostPayload(String nameParam, String genderParam, long phoneParam, int expectedCount){
+
+    }
 }
