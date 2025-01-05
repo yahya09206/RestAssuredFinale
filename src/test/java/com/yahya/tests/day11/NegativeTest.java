@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
+import static org.hamcrest.Matchers.*;
 
 public class NegativeTest extends SpartanTestBase {
 
@@ -52,6 +53,9 @@ public class NegativeTest extends SpartanTestBase {
         Spartan invalidBody = new Spartan("A", "Male", 1231231231L);
 
         given().log().all().contentType(ContentType.JSON).body(invalidBody)
-                .when().post("/spartans").then().log().all().statusCode(400);
+                .when().post("/spartans").then().log().all().statusCode(400)
+                .body("message", is("Invalid Input!"))
+                .body("errorCount", equalTo(1))
+                .body("error[0].errorField", is("name"));
     }
 }
