@@ -2,6 +2,7 @@ package com.yahya.tests.day11;
 
 import com.yahya.pojo.Spartan;
 import com.yahya.utility.SpartanTestBase;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +51,7 @@ public class NegativeTest extends SpartanTestBase {
         // prepare test body
         Spartan invalidBody = new Spartan("A", "Male", 1231231231L);
 
-        given().
+        given().log().all().contentType(ContentType.JSON).body(invalidBody)
+                .when().post("/spartans").then().log().all().statusCode(400);
     }
 }
