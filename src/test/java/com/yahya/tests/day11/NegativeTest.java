@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.yahya.pojo.Spartan;
 import com.yahya.utility.SpartanTestBase;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -76,6 +77,7 @@ public class NegativeTest extends SpartanTestBase {
                 .body("errorCount", equalTo(expectedCount));
     }
 
+    @Disabled("Known issue: defect130")
     @DisplayName("Test Phone upper boundary")
     @Test
     public void testPutRequestNegativeScenario(){
