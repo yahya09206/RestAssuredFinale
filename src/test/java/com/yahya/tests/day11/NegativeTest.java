@@ -104,6 +104,5 @@ public class NegativeTest extends SpartanTestBase {
                 .body(invalidPhoneBody).
                 when().put("/spartans/{id}").
                 then().log().ifValidationFails().statusCode(400);
-
     }
 }
