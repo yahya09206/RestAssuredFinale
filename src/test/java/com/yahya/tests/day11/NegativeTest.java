@@ -67,5 +67,11 @@ public class NegativeTest extends SpartanTestBase {
     @CsvFileSource(resources = "/negativePostData.csv", numLinesToSkip = 1)
     public void testNegativePostPayload(String nameParam, String genderParam, long phoneParam, int expectedCount){
 
+        Spartan invalidBody = new Spartan(nameParam, genderParam, phoneParam);
+
+        given().log().all().contentType(ContentType.JSON).body(invalidBody)
+                .when().post("/spartans").then().log().all().statusCode(400)
+                .body("message", is("Invalid Input!"))
+                .body("errorCount", equalTo(expectedCount));
     }
 }
