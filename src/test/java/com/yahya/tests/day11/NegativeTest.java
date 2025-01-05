@@ -56,6 +56,8 @@ public class NegativeTest extends SpartanTestBase {
                 .when().post("/spartans").then().log().all().statusCode(400)
                 .body("message", is("Invalid Input!"))
                 .body("errorCount", equalTo(1))
-                .body("error[0].errorField", is("name"));
+                .body("errors[0].errorField", is("name"));
     }
+
+
 }
