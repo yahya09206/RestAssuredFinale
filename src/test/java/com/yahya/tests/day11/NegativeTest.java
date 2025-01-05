@@ -1,5 +1,6 @@
 package com.yahya.tests.day11;
 
+import com.github.javafaker.Faker;
 import com.yahya.pojo.Spartan;
 import com.yahya.utility.SpartanTestBase;
 import io.restassured.http.ContentType;
@@ -86,6 +87,21 @@ public class NegativeTest extends SpartanTestBase {
          */
         int lastId = get("/spartans").path("id[-1]");
         System.out.println("lastId = " + lastId);
+
+        // prepare body, wrong phone number
+        Faker faker = new Faker();
+        long phone15Digit = faker.number().randomNumber(15, true);
+        System.out.println(phone15Digit);
+
+        Spartan invalidPhoneBody = new Spartan("Alex", "Male", phone15Digit);
+        System.out.println("invalidPhoneBody = " + invalidPhoneBody);
+
+        given().log().uri()
+                .pathParam("id", lastId)
+                .contentType(ContentType.JSON)
+                .body(invalidPhoneBody).
+                when().put("/spartans/{id}").
+                then().log().ifValidationFails().statusCode(400);
 
     }
 }
